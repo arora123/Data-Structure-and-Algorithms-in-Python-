@@ -66,13 +66,13 @@ class BSTNode:
             if self.left:
                 return self.left.search(value)
             else:
-                print("Value is not found")
+                print(f"Value {value} is found in the tree")
                 
         if value > self.data:
             if self.right:
                 return self.right.search(value)
             else:
-                print("Value is not found")
+                print(f"Value {value} is not found in the tree")
                 
     def find_max(self):
         if self.right == None:
