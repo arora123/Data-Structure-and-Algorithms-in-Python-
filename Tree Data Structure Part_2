@@ -1,0 +1,97 @@
+"""
+Tree for Management Hierarchy [two inputs]
+"""
+
+class TreeNode():
+    def __init__(self, name, designation):
+        self.name = name
+        self.designation = designation
+        self.children = []
+        self.parent = None
+        
+    def add_child(self, child):
+        child.parent = self
+        self.children.append(child)
+        
+    def get_level(self):
+        level = 0
+        p = self.parent
+        while p:
+            level += 1
+            p = p.parent
+        return level
+        # print(level)
+        
+    def print_tree(self, details):
+        prefix = " "*self.get_level()*3 + "-->"
+        
+        if details == 'name':
+            print(prefix, str(self.get_level()), self.name)
+            if self.children:
+                for child in self.children:
+                    child.print_tree(details)
+        if details =='designation':
+            print(prefix, str(self.get_level()), self.designation)
+            if self.children:
+                for child in self.children:
+                    child.print_tree(details)
+
+        if details == 'both':
+            print(prefix, str(self.get_level()), self.name, " |" ,self.designation)
+            if self.children:
+                for child in self.children:
+                    child.print_tree(details)
+                    
+    def print_tree_level(self, details, level):
+        if self.get_level() > level:
+            return
+        
+        prefix = " "*self.get_level()*3 + "-->"
+        
+        if details == 'name':
+            print(prefix, str(self.get_level()), self.name)
+            if self.children:
+                for child in self.children:
+                    child.print_tree_level(details, level)
+        if details =='designation':
+            print(prefix, str(self.get_level()), self.designation)
+            if self.children:
+                for child in self.children:
+                    child.print_tree_level(details, level)
+
+        if details == 'both':
+            print(prefix, str(self.get_level()), self.name, " |" ,self.designation)
+            if self.children:
+                for child in self.children:
+                    child.print_tree_level(details, level)                        
+
+def buildTree():
+    root = TreeNode("Krishnan", "CEO")
+    
+    product = TreeNode("Ram", "Product Manager")
+    sales = TreeNode("Prateek", "Marketing Manager")
+    
+    root.add_child(product)
+    root.add_child(sales)
+    
+    product.add_child(TreeNode("Naomi", "Graphic Designer"))
+    product.add_child(TreeNode("Prakhar", "SME"))
+    product.add_child(TreeNode("Sadhna", "Developer"))
+    
+    sales.add_child(TreeNode("Abhinav", "Marketing Analyst"))
+    sales.add_child(TreeNode("Tom", "SalesMan"))
+    product.add_child(TreeNode("Jack", "SalesMan"))
+    
+    # root.print_tree('both')
+    return root
+    
+if __name__ == '__main__':
+    t1 = buildTree()
+    print('\n', 'Complete Details: ')
+    t1.print_tree('both')
+    print('\n', 'Names: ')
+    t1.print_tree('name')
+    print('\n', 'Designations: ')
+    t1.print_tree('designation')
+    print('\n', 'designations upto some level: ')
+    t1.print_tree_level('designation', 1)
