@@ -63,7 +63,16 @@ class TreeNode():
             print(prefix, str(self.get_level()), self.name, " |" ,self.designation)
             if self.children:
                 for child in self.children:
-                    child.print_tree_level(details, level)                        
+                    child.print_tree_level(details, level)
+                    
+   def level_order_traversal(self, level):
+       elements = [self.name]
+       if level > self.get_level():
+           if self.children:
+               for child in self.children:
+                   elements += child.level_order_traversal(level)
+       return elements
+
 
 def buildTree():
     root = TreeNode("Krishnan", "CEO")
@@ -95,3 +104,7 @@ if __name__ == '__main__':
     t1.print_tree('designation')
     print('\n', 'designations upto some level: ')
     t1.print_tree_level('designation', 1)
+    
+    print("Person at Level_0: ", t1.level_order_traversal(0))
+    print("Persons at Level_1: ", t1.level_order_traversal(1))
+    print("Persons at Level_2: ", '\n',t1.level_order_traversal(2))
