@@ -1,6 +1,19 @@
 # Data-Structure-and-Algorithms-in-Python-
 This Repository contains codes for Data Structure and Algorithms implementation in Python with some interesting use cases and exercises.
 
+linked list part1.py 
+
+Creating a singly linked list of muliple data points such as employee name, age, etc.
+
+linked list part2.py
+
+Creating a singly linked list of data points having methods for insert_at_begining and 
+
+linked list part3.py
+
+Creating a singly linked list of data points with method for insert_at_begining, insert_at_end and insert_list
+
+
 tree data structure part_1.py
 
 1. Create a general Tree for a website with methods for
