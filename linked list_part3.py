@@ -2,7 +2,6 @@
 """
 Creating a singly linked list of data points
 with method for insert_at_begining, insert_at_end and insert_list
-using next1 instead of next
 """
 
 class Node:
