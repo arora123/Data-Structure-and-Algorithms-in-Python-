@@ -1,5 +1,5 @@
 # Data-Structure-and-Algorithms-in-Python-
-This Repository contains codes for Data Structure and Algorithms implementation in Python with some interesting use cases and exercises.
+This Repository contains codes for Data Structure and Algorithms implementation in Python with some interesting use cases and exercises inspired by codebasics 
 
 linked list part1.py 
 
@@ -50,3 +50,23 @@ binary serach tree part_1.py
 	--> Minimum number from the above list
 
 3. In the list of courses ["R", "Python", "Machine Learning", "Statistics", "Excel"], search for "Machine Learning" and "Big Data" using binary search tree
+
+binary search tree part2.py
+Added a method to delete element from tree data structure
+
+ Three posssibilities:
+	--> 1. if the value to be deleted is a leaf node [node with no child]
+		Then you need to delete left/right subtree of it's (own) parent
+	--> 2. if the value to be deleted is a node with only one child
+		Then you need to delete the node and replace it with it's child
+	--> 3. if the value to be deleted has two children [it's tricky]
+		Then 
+		   a) find a right subtree and find it's minimun value
+		     copy it's value to that node (which is to be deleted) and remove duplicate
+or
+		   b) find maximum from left subtree andd copy it's value to that node and remove duplicate
+
+
+
+
+
